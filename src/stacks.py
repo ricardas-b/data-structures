@@ -2,7 +2,7 @@ from linked_lists import BasicSinglyLinkedList as LinkedList
 
 
 
-class BasicStack:
+class Stack:
     ''' Implementation of Stack ADT '''
     
     def __init__(self):
