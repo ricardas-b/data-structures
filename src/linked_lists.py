@@ -213,7 +213,7 @@ class AdvancedSinglyLinkedList:
 
 
     def sort(self, reverse=False):
-        ''' Sort the list using merge sort algorithm '''
+        ''' Sort the list using recursive merge sort algorithm '''
         
         if not self.is_sorted:
             self.head = self._split(self.head, self.length)
