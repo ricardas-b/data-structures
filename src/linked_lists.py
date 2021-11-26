@@ -7,6 +7,16 @@ class SinglyLinkedNode:
 
 
 
+class DoublyLinkedNode:
+    __slots__ = ('data', 'prev', 'next')
+
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+
+
 class BasicSinglyLinkedList:
     ''' Minimal implementation of the Singly Linked List abstract data type
         (ADT) showing the main concepts of this ADT '''
