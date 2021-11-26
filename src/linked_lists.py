@@ -15,10 +15,10 @@ class BasicSinglyLinkedList:
         self.head = None
 
 
-    def add(self, data):
+    def add(self, value):
         ''' Add new node to the beginning of the list in O(1) time '''
 
-        new_node = SinglyLinkedNode(data)
+        new_node = SinglyLinkedNode(value)
         new_node.next = self.head
         self.head = new_node
 
@@ -81,20 +81,20 @@ class AdvancedSinglyLinkedList:
             current_node = current_node.next
 
 
-    def insert_at_beginning(self, data):
-        ''' Insert <data> at the beginning of the list in O(1) time '''
+    def insert_at_beginning(self, value):
+        ''' Insert <value> at the beginning of the list in O(1) time '''
 
-        self.insert_at_index(0, data)
-
-
-    def insert_at_end(self, data):
-        ''' Insert <data> at the end of the list in O(1) time '''
-
-        self.insert_at_index(self.length, data)
+        self.insert_at_index(0, value)
 
 
-    def insert_at_index(self, index, data):
-        ''' Insert <data> at given <index> of the list in O(n) time '''
+    def insert_at_end(self, value):
+        ''' Insert <value> at the end of the list in O(1) time '''
+
+        self.insert_at_index(self.length, value)
+
+
+    def insert_at_index(self, index, value):
+        ''' Insert <value> at given <index> of the list in O(n) time '''
 
         if not (isinstance(index, int)):
             raise TypeError('list indices must be integers')
@@ -102,7 +102,7 @@ class AdvancedSinglyLinkedList:
         if not (0 <= index <= self.length):
             raise IndexError('list index out of range')
 
-        new_node = SinglyLinkedNode(data)
+        new_node = SinglyLinkedNode(value)
 
         if index == 0:
             new_node.next = self.head
@@ -130,17 +130,17 @@ class AdvancedSinglyLinkedList:
         self.is_sorted = False
 
 
-    def insert_sorted(self, val):
-        ''' Insert <data> into the sorted list in the correct sorted position.
+    def insert_sorted(self, value):
+        ''' Insert <value> into the sorted list in the correct sorted position.
             If the list is currently not sorted, sort it '''
         
         if self.is_sorted:
-            new_node = SinglyLinkedNode(val)
+            new_node = SinglyLinkedNode(value)
             previous_node = None
             current_node = self.head
 
             while current_node is not None:
-                if current_node.data <= val:
+                if current_node.data <= new_node.data:
                     previous_node = current_node
                     current_node = current_node.next
 
@@ -165,14 +165,14 @@ class AdvancedSinglyLinkedList:
         self.length += 1
 
 
-    def remove(self, val):
+    def remove(self, value):
         ''' Find a node by data value and remove it '''
 
         previous_node = None
         current_node = self.head
 
         while current_node is not None:
-            if current_node.data == val:
+            if current_node.data == value:
                 if previous_node is None:
                     self.head = current_node.next   # Removing the very first element of the list ...
 
