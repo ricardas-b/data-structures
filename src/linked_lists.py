@@ -219,18 +219,18 @@ class AdvancedSinglyLinkedList:
             self.head = self._split(self.head, self.length)
             self.is_sorted = True
 
-            if reverse:
-                self.reverse()
+        if reverse:
+            self.reverse()
+            
+        else:   # Set the tail reference of the list as the final step in sorting procedure
+            self.tail = None
+            current_node = self.head
+            
+            while current_node is not None:
+                if current_node.next is None:
+                    self.tail = current_node
                 
-            else:   # Set the tail reference of the list as the final step in sorting procedure
-                self.tail = None
-                current_node = self.head
-                
-                while current_node is not None:
-                    if current_node.next is None:
-                        self.tail = current_node
-                    
-                    current_node = current_node.next
+                current_node = current_node.next
 
 
     def _merge(self, sorted_left, sorted_right):
